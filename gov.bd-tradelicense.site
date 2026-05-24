@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>চট্টগ্রাম সিটি কর্পোরেশন - ই-ট্রেড লাইসেন্স</title>
+    <style>
+        /* A4 Page Layout Styles */
+        body {
+            font-family: Arial, 'SolaimanLipi', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+            color: #000;
+        }
+
+        .license-container {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 20mm 15mm;
+            margin: 20px auto;
+            background: #ffffff;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            position: relative;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        /* Watermark Background Styling */
+        .watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-15deg);
+            width: 85%;
+            text-align: center;
+            opacity: 0.05;
+            z-index: 1;
+            pointer-events: none;
+            font-weight: bold;
+        }
+        .watermark h1 { font-size: 55pt; margin: 0; color: #000; }
+        .watermark h2 { font-size: 32pt; margin: 5px 0 0 0; color: #000; }
+
+        .content-area {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Top Header Component */
+        .header-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+        }
+        .header-table td { vertical-align: top; }
+        
+        .qr-section { width: 25%; }
+        .qr-holder {
+            width: 110px;
+            height: 110px;
+            border: 2px solid #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 10px;
+            background: #fafafa;
+        }
+        .qr-text { font-size: 11px; font-weight: bold; margin-top: 5px; }
+
+        .center-title-section { width: 50%; text-align: center; }
+        .main-title { font-size: 26px; font-weight: bold; margin: 0; }
+        .web-url { font-size: 16px; color: #0056b3; text-decoration: underline; margin: 5px 0; }
+        .center-logo {
+            width: 65px;
+            height: 65px;
+            border: 2px dashed #008000;
+            border-radius: 50%;
+            margin: 5px auto 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ff0000;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .photo-section { width: 25%; text-align: right; position: relative; }
+        .photo-holder {
+            width: 115px;
+            height: 135px;
+            border: 1px solid #0056b3;
+            background-color: #e6f2ff;
+            display: inline-block;
+        }
+        .seal-overlay {
+            position: absolute;
+            bottom: -10px;
+            right: 75px;
+            width: 75px;
+            height: 75px;
+            border: 2px double #4b0082;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            color: #4b0082;
+            font-weight: bold;
+            transform: rotate(-20deg);
+            background: transparent;
+        }
+
+        /* Document Title Block */
+        .doc-title-container { text-align: center; margin: 15px 0; }
+        .doc-title {
+            font-size: 24px;
+            font-weight: bold;
+            border-bottom: 2px solid #000;
+            display: inline-block;
+            padding-bottom: 2px;
+            letter-spacing: 1px;
+        }
+
+        /* Meta Timeline Row */
+        .meta-table { width: 100%; border-collapse: collapse; margin-bottom: 12px; font-size: 14px; }
+        .meta-table td { padding: 3px 0; }
+
+        /* Legal Clause Box */
+        .legal-text {
+            font-size: 12.5px;
+            text-align: justify;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        /* Grid Data Table Sheet */
+        .data-table { width: 100%; border-collapse: collapse; margin-bottom: 8px; font-size: 14px; }
+        .data-table td { padding: 4px 2px; vertical-align: top; }
+        .w-num { width: 4%; font-weight: bold; }
+        .w-lbl { width: 26%; font-weight: bold; }
+        .w-sep { width: 2%; text-align: center; }
+        .w-val { width: 68%; }
+
+        /* Address Split Architecture */
+        .split-container-table { width: 100%; border-collapse: collapse; }
+        .split-container-table > tr > td { width: 50%; vertical-align: top; padding: 0; }
+        
+        .sub-data-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+        .sub-data-table td { padding: 3px 2px; }
+        .sub-lbl { width: 35%; font-weight: normal; }
+        .sub-val { width: 65%; }
+
+        /* Financial Ledger Grid */
+        .fee-ledger-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+        .fee-ledger-table td { padding: 3px 4px; }
+        .fee-lbl { width: 65%; }
+        .fee-val { width: 35%; }
+
+        /* Term Statement banner */
+        .expiry-banner {
+            text-align: center;
+            margin: 30px 0 20px 0;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        /* Footer Signature Components */
+        .footer-table { width: 100%; border-collapse: collapse; margin-top: 40px; }
+        .footer-table td { vertical-align: bottom; }
+        .bottom-seal {
+            width: 80px;
+            height: 80px;
+            border: 2px double #4b0082;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: #4b0082;
+            font-weight: bold;
+        }
+        .signature-block { text-align: right; font-size: 14px; line-height: 1.4; }
+        .handwritten-sign {
+            font-family: 'Courier New', monospace;
+            font-size: 18px;
+            font-weight: bold;
+            font-style: italic;
+            margin-bottom: 2px;
+            padding-right: 25px;
+        }
+
+        /* CSS Print Configurations */
+        @media print {
+            body { background: none; }
+            .license-container {
+                margin: 0;
+                box-shadow: none;
+                width: 210mm;
+                height: 297mm;
+                page-break-after: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="license-container">
+        
+        <div class="watermark">
+            <h1>চট্টগ্রাম সিটি কর্পোরেশন</h1>
+            <h2>CHATTOGRAM CITY CORPORATION</h2>
+        </div>
+
+        <div class="content-area">
+            
+            <table class="header-table">
+                <tr>
+                    <td class="qr-section">
+                        <div class="qr-holder">QR CODE AREA</div>
+                        <div class="qr-text">লাইসেন্স ইস্যুর বিবরণ</div>
+                    </td>
+                    <td class="center-title-section">
+                        <h1 class="main-title">চট্টগ্রাম সিটি কর্পোরেশন</h1>
+                        <div class="web-url">www.dscc.gov.bd</div>
+                        <div class="center-logo">মাস্টার লোগো</div>
+                    </td>
+                    <td class="photo-section">
+                        <div class="photo-holder"></div>
+                        <div class="seal-overlay">সিটি কর্পোরেশন সিল</div>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="doc-title-container">
+                <div class="doc-title">ই-ট্রেড লাইসেন্স</div>
+            </div>
+
+            <table class="meta-table">
+                <tr>
+                    <td style="width: 12%; font-weight: bold;">ইস্যুর তারিখ</td>
+                    <td style="width: 25%;">: ৩০/০৬/২০২৫</td>
+                    <td style="width: 23%; font-weight: bold; text-align: right; padding-right: 15px;">লাইসেন্স নং</td>
+                    <td style="width: 40%; font-weight: bold;">: TRAD/DSCC/262369/2023</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold;">ইস্যুর সময়</td>
+                    <td>: ১০:৩৪:৫৮</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+
+            <div class="legal-text">
+                স্থানীয় সরকার (সিটি কর্পোরেশন) আইন, ২০০৯ (২০০৯ সনের ৬০ নং আইন) এর ধারা ৮৪- তে প্রদত্ত ক্ষমতাবলে সরকার প্রণীত আদর্শ কর তফসিল, ২০১৬ এর ১০ অনুচ্ছেদ অনুযায়ী ব্যবসা, বৃত্তি, পেশা বা শিল্প প্রতিষ্ঠানের উপর আরোপিত কর আদায়ের লক্ষ্যে নিম্নে বর্ণিত ব্যক্তি/ প্রতিষ্ঠানের অনুকূলে অত্র ট্রেড লাইসেন্সটি ইস্যু করা হলো।
+            </div>
+
+            <table class="data-table">
+                <tr>
+                    <td class="w-num">১।</td>
+                    <td class="w-lbl">ব্যবসা প্রতিষ্ঠানের নাম</td>
+                    <td class="w-sep">:</td>
+                    <td class="w-val" style="font-weight: bold;">হ্যাপিয়ার জোন</td>
+                </tr>
+                <tr>
+                    <td class="w-num">২।</td>
+                    <td class="w-lbl">প্রতিষ্ঠানের মালিকের নাম</td>
+                    <td class="w-sep">:</td>
+                    <td class="w-val">জাভেদ গোলাম মোহাম্মদ</td>
+                </tr>
+                <tr>
+                    <td class="w-num">৩।</td>
+                    <td class="w-lbl">পিতা / স্বামীর নাম</td>
+                    <td class="w-sep">:</td>
+                    <td class="w-val">মৃত গোলাম মোহাম্মদ ইউসুফ</td>
+                </tr>
+                <tr>
+                    <td class="w-num">৪।</td>
+                    <td class="w-lbl">মাতার নাম</td>
+                    <td class="w-sep">:</td>
+                    <td class="w-val">মৃত হনুফা গোলাম মোহাম্মদ</td>
+                </tr>
+                <tr>
+                    <td class="w-num">৫।</td>
+                    <td class="w-lbl">ব্যবসার প্রকৃতি</td>
+                    <td class="w-sep">:</td>
+                    <td class="w-val">অনিল - একক</td>
+                </tr>
+                <tr>
+                    <td class="w-num">৬।</td>
+                    <td class="w-lbl">ব্যবসার ধরন</td>
+                    <td class="w-sep">:</td>
+                    <td class="w-val">আমদানিকারক, সরবরাহকারী</td>
+                </tr>
+                <tr>
+                    <td class="w-num">৭।</td>
+                    <td class="w-lbl">প্রতিষ্ঠানের ঠিকানা</td>
+                    <td class="w-sep">:</td>
+                    <td class="w-val">৮আর,এফ,+৮৫জে, পি. মুজিব রোড, আগ্রাবাদ, চট্টগ্রাম- ৪১০০</td>
+                </tr>
+            </table>
+
+            <table class="data-table" style="margin-bottom: 5px;">
+                <tr>
+                    <td style="width: 4%; font-weight: bold;">৮।</td>
+                    <td style="width: 26%; font-weight: bold;">অঞ্চল / বাজার শাখা</td>
+                    <td style="width: 2%;">:</td>
+                    <td style="width: 30%;">২</td>
+                    <td style="width: 18%; font-weight: bold;">ওয়ার্ড / মার্কেট:</td>
+                    <td style="width: 20%;">১০</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="font-weight: bold;">এলাকা</td>
+                    <td>:</td>
+                    <td>-</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+
+            <table class="data-table" style="margin-bottom: 5px;">
+                <tr>
+                    <td style="width: 4%; font-weight: bold;">৯।</td>
+                    <td style="width: 26%; font-weight: bold;">এনআইডি/পাসপোর্ট/জন্ম নিবন্ধন নং</td>
+                    <td style="width: 2%;">:</td>
+                    <td style="width: 68%;">১৯৮৭২১১৬৫১৩০০০০১৮</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="font-weight: bold;">ফোন</td>
+                    <td>:</td>
+                    <td>০১৭১১৭৯০০৬৬</td>
+                </tr>
+            </table>
+
+            <table class="data-table" style="margin-bottom: 5px;">
+                <tr>
+                    <td style="width: 4%; font-weight: bold;">১০।</td>
+                    <td style="width: 26%; font-weight: bold;">অর্থ বছর</td>
+                    <td style="width: 2%;">:</td>
+                    <td style="width: 30%;">২০২১-২০২২ (নবায়নকৃত)</td>
+                    <td style="width: 18%; font-weight: bold;">বিআইএন নং:</td>
+                    <td style="width: 20%;">-</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td style="font-weight: bold;">১১। মালিকের বর্তমান ঠিকানা:</td>
+                    <td>:</td>
+                    <td></td>
+                    <td style="font-weight: bold;">ই-মেইল:</td>
+                    <td>-</td>
+                </tr>
+            </table>
+
+            <table class="split-container-table">
+                <tr>
+                    <td>
+                        <table class="sub-data-table">
+                            <tr>
+                                <td class="sub-lbl">হোল্ডিং নং</td>
+                                <td class="sub-val">: সি/এ-৯</td>
+                            </tr>
+                            <tr>
+                                <td class="sub-lbl">রোড নং</td>
+                                <td class="sub-val">: -</td>
+                            </tr>
+                            <tr>
+                                <td class="sub-lbl">গ্রাম / মহল্লা</td>
+                                <td class="sub-val">: এস,কে মুজিব রোড</td>
+                            </tr>
+                            <tr>
+                                <td class="sub-lbl">পোস্টকোড</td>
+                                <td class="sub-val">: ৪১০০</td>
+                            </tr>
+                            <tr>
+                                <td class="sub-lbl">থানা</td>
+                                <td class="sub-val">: আগ্রাবাদ</td>
+                            </tr>
+                            <tr>
+                                <td class="sub-lbl">জেলা</td>
+                                <td class="sub-value">: চট্টগ্রাম</td>
+                            </tr>
+                            <tr>
+                                <td class="sub-lbl">বিভাগ</td>
+                                <td class="sub-val">: চট্টগ্রাম</td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td>
+                        <table class="sub-data-table" style="padding-left: 20px;">
+                            <tr>
+                                <td colspan="2" style="font-weight: bold; padding-bottom: 4px;">মালিকের স্থায়ী ঠিকানা</td>
+                            </tr>
+                            <tr>
+                                <td class="sub-lbl">হোল্ডিং নং</td>
+                                <td class="sub-val">: ২৮৫</td>
+                            </tr>
+                            <tr>
+                                <td class="sub-lbl">রোড নং</td>
+                                <td class="sub-val">: রসুলপুর, দনিয়া</td>
+                            </tr>
+                            <tr>
+                                <td class="sub-lbl">গ্রাম / মহল্লা</td>
+                                <td class="sub-val">: দনিয়া - ১২৩৬</td>
+                            </tr>
+                            <tr>
+                                <td class="sub-lbl">পোস্টকোড</td>
+                                <td class="sub-val">: ১২৩৬</td>
+                            </tr>
+                            <tr>
+                                <td class="sub-lbl">থানা</td>
+                                <td class="sub-val">: যাত্রাবাড়ী</td>
+                            </tr>
+                            <tr>
+                                <td class="sub-lbl">জেলা</td>
+                                <td class="sub-val">: ঢাকা</td>
+                            </tr>
+                            <tr>
+                                <td class="sub-lbl">বিভাগ</td>
+                                <td class="sub-val">: ঢাকা</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+
+            <table class="data-table" style="margin-top: 15px; margin-bottom: 0;">
+                <tr>
+                    <td style="width: 4%; font-weight: bold;">১২।</td>
+                    <td style="font-weight: bold;">ট্রেড লাইসেন্স/নবায়ন ফি (বার্ষিক):</td>
+                    <td style="width: 50%; font-weight: bold; padding-left: 20px;">ব্যবসা শুরু তারিখ: -</td>
+                </tr>
+            </table>
+
+            <table class="split-container-table">
+                <tr>
+                    <td>
+                        <table class="fee-ledger-table">
+                            <tr>
+                                <td class="fee-lbl">লাইসেন্স/নবায়ন ফি</td>
+                                <td class="fee-val">: ৪০০০</td>
+                            </tr>
+                            <tr>
+                                <td class="fee-lbl">সারচার্জ</td>
+                                <td class="fee-val">: ০</td>
+                            </tr>
+                            <tr>
+                                <td class="fee-lbl">আয়কর / উৎসকর</td>
+                                <td class="fee-val">: ৩০০০</td>
+                            </tr>
+                            <tr>
+                                <td class="fee-lbl">বকেয়া</td>
+                                <td class="fee-val">: ০</td>
+                            </tr>
+                            <tr>
+                                <td class="fee-lbl">সংশোধনী ফি</td>
+                                <td class="fee-val">: ০.০০</td>
+                            </tr>
+                            <tr>
+                                <td class="fee-lbl">সাইনবোর্ড কর</td>
+                                <td class="fee-val">: ৮০০.০০</td>
+                            </tr>
+                            <tr>
+                                <td class="fee-lbl">ভ্যাট</td>
+                                <td class="fee-val">: ৭২২.০০</td>
+                            </tr>
+                            <tr>
+                                <td class="fee-lbl">ফর্ম ফি</td>
+                                <td class="fee-val">: ৫০.০০</td>
+                            </tr>
+                            <tr style="font-weight: bold;">
+                                <td class="fee-lbl">সর্বমোট</td>
+                                <td class="fee-val">: ৮৭৭২.০০</td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td>
+                        <table class="fee-ledger-table" style="padding-left: 20px; margin-top: 100px;">
+                            <tr>
+                                <td class="fee-lbl">সাইনবোর্ড কর</td>
+                                <td class="fee-val">: ৮০০.০০</td>
+                            </tr>
+                            <tr>
+                                <td class="fee-lbl">ভ্যাট</td>
+                                <td class="fee-val">: ৭২২.০০</td>
+                            </tr>
+                            <tr>
+                                <td class="fee-lbl">ফর্ম ফি</td>
+                                <td class="fee-val">: ৫০.০০</td>
+                            </tr>
+                            <tr style="font-weight: bold;">
+                                <td class="fee-lbl">সর্বমোট</td>
+                                <td class="fee-val">: ৮৭৭২.০০</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="expiry-banner">
+                অত্র ট্রেড লা
